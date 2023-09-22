@@ -12,9 +12,7 @@
             )
 ```
 
+--- added "#" to "streaming = True" code.
+```#streaming=True,```
 
-# added "#" to "streaming = True" code.
-               ```#streaming=True,```
-
-
-# added "cache_dir="nanoT5/dataset/data" code.
+--- added "cache_dir="nanoT5/dataset/data" code.
