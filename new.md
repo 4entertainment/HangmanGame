@@ -20,7 +20,7 @@
 -> added "cache_dir="nanoT5/dataset/data" code.
 
 
-# terminal:
+## terminal:
 ```
 (nanoT5) berkin@berkin:~/Desktop/nanoT5$ python -m nanoT5.main optim.name=adafactor optim.lr_scheduler=legacy model.compile=true
 Token will not been saved to git credential helper. Pass `add_to_git_credential=True` if you want to set the git credential as well.
@@ -197,7 +197,7 @@ Downloading data: 100%|███████████████████
 Downloading data files:   2%|███                                                                                                                                                               | 19/1024 [28:08<25:37:35, 91.80s/it]
 Downloading data:  71%|██████████████████████████████████████████████████████████████████████████████████████████████████████████
 ```
-later:
+## later:
 ```
 Downloading data: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40.5M/40.5M [00:07<00:00, 5.20MB/s]
 Downloading data: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40.4M/40.4M [00:08<00:00, 4.65MB/s]
@@ -220,3 +220,19 @@ Generating train split:   1%|█▊                                             
 Generating train split:   1%|█▉                                                                                                                                 | 5343623/364868892 [04:01<4:34:07, 21859.28 examples/s][2023-09-28 13:07:08,622][datasets_modules.datasets.c4.df532b158939272d032cc63ef19cd5b83e9b4d00c922b833e4cb18b2e9869b01.c4][INFO] - generating examples from = nanoT5/dataset/data/downloads/1b9a9a06dfafdb7b8e46849487e5411aafe8be74228f479886380e86bf038411
 Generating train split:   2%|██                                                     
 ```
+## then:
+```
+OSError: [Errno 28] No space left on device 
+
+During handling of the above exception, another exception occurred: 
+Traceback (most recent call last): 
+File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/builder.py", line 1703, in _prepare_split_single num_examples, num_bytes = writer.finalize() File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/arrow_writer.py", line 586, in finalize self.write_examples_on_file() File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/arrow_writer.py", line 448, in write_examples_on_file self.write_batch(batch_examples=batch_examples) File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/arrow_writer.py", line 559, in write_batch self.write_table(pa_table, writer_batch_size) File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/arrow_writer.py", line 577, in write_table self.pa_writer.write_table(pa_table, writer_batch_size) File "pyarrow/ipc.pxi", line 525, in pyarrow.lib._CRecordBatchWriter.write_table File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/fsspec/implementations/local.py", line 382, in write return self.f.write(*args, **kwargs) 
+
+OSError: [Errno 28] No space left on device 
+The above exception was the direct cause of the following exception: 
+Traceback (most recent call last): File "/home/berkin/Desktop/nanoT5/nanoT5/main.py", line 46, in main train_dataloader, test_dataloader = get_dataloaders(tokenizer, config, args) File "/home/berkin/Desktop/nanoT5/nanoT5/utils/model_utils.py", line 245, in get_dataloaders dataset_splits = load_dataset_splits(args) File "/home/berkin/Desktop/nanoT5/nanoT5/utils/model_utils.py", line 141, in load_dataset_splits dataset = datasets.load_dataset( File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/load.py", line 2153, in load_dataset builder_instance.download_and_prepare( File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/builder.py", line 954, in download_and_prepare self._download_and_prepare( File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/builder.py", line 1717, in _download_and_prepare super()._download_and_prepare( File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/builder.py", line 1049, in _download_and_prepare self._prepare_split(split_generator, **prepare_split_kwargs) File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/builder.py", line 1555, in _prepare_split for job_id, done, content in self._prepare_split_single( File "/home/berkin/anaconda3/envs/nanoT5/lib/python3.8/site-packages/datasets/builder.py", line 1712, in _prepare_split_single raise DatasetGenerationError("An error occurred while generating the dataset") from e datasets.builder.DatasetGenerationError: An error occurred while generating the dataset 
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+```
+## another warning from browser:
+![Alt text](HangmanGame/1111)
