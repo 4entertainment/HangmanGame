@@ -235,4 +235,4 @@ Traceback (most recent call last): File "/home/berkin/Desktop/nanoT5/nanoT5/main
 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 ```
 ## another warning from browser:
-![Alt text]([HangmanGame/1111.png](https://github.com/4entertainment/HangmanGame/blob/main/1111.png)https://github.com/4entertainment/HangmanGame/blob/main/1111.png)
+![Error Message](1111.png)
