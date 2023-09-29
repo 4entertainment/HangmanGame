@@ -236,3 +236,9 @@ Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
 ```
 ## another warning from browser:
 ![Error Message](1111.png)
+
+
+## will look at:
+https://huggingface.co/datasets/wikipedia
+change tokenizer to "mT5"
+get the dataset... improve "selectable" qualification
